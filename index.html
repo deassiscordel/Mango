@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mango - Leitura Online</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#ff7300,#ffb300);
+    padding:20px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+}
+
+/* BANNER */
+
+.banner{
+    position:relative;
+    height:220px;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(35%);
+}
+
+.banner-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    width:90%;
+}
+
+.banner-text h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.banner-text p{
+    color:#ddd;
+}
+
+/* CONTAINER */
+
+.container{
+    padding:20px;
+}
+
+/* TITULO */
+
+.section-title{
+    font-size:26px;
+    margin-bottom:20px;
+    border-left:5px solid #ff9800;
+    padding-left:12px;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+/* CARD */
+
+.card{
+    background:#1a1a1a;
+    border-radius:18px;
+    overflow:hidden;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.cover{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.info{
+    padding:18px;
+}
+
+.manga-name{
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.chapter{
+    color:#ffb300;
+    margin-bottom:10px;
+    font-size:15px;
+}
+
+.desc{
+    color:#bbb;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.expire{
+    background:#2a2a2a;
+    padding:10px;
+    border-radius:10px;
+    color:#ffb300;
+    font-size:13px;
+    margin-bottom:16px;
+}
+
+/* BOTÃO */
+
+.btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#ff7b00,#ffb700);
+    color:white;
+    font-weight:600;
+    font-family:Poppins,sans-serif;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:15px;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+/* LEITOR PDF */
+
+#viewer{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    z-index:9999;
+}
+
+/* TOPO LEITOR */
+
+.viewer-top{
+    background:#111;
+    padding:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+/* BOTÃO FECHAR */
+
+.close-btn{
+    background:red;
+    border:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    font-family:Poppins,sans-serif;
+}
+
+/* IFRAME PDF */
+
+iframe{
+    width:100%;
+    height:92vh;
+    border:none;
+    background:#111;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:40px;
+    background:#151515;
+    text-align:center;
+    padding:25px;
+    color:#777;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:480px){
+
+    .banner{
+        height:180px;
+    }
+
+    .banner-text h1{
+        font-size:24px;
+    }
+
+    .cover{
+        height:260px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+MANGO
+</div>
+
+</header>
+
+<!-- BANNER -->
+
+<section class="banner">
+
+<img src="https://i.postimg.cc/JnrCzT31/images.jpg">
+
+<div class="banner-text">
+
+<h1>Leitura Online</h1>
+
+<p>
+Leia capítulos online diretamente no site.
+</p>
+
+</div>
+
+</section>
+
+<!-- CONTEÚDO -->
+
+<section class="container">
+
+<h2 class="section-title">
+Últimos Capítulos
+</h2>
+
+<div class="grid">
+
+<!-- CARD 1 -->
+
+<div class="card">
+
+<img class="cover"
+src="https://i.postimg.cc/sgh17TGv/Boruto-TBV-CAP-34-Pt-Br-1.jpg">
+
+<div class="info">
+
+<div class="manga-name">
+Boruto Two Blue Vortex
+</div>
+
+<div class="chapter">
+Capítulo 34
+</div>
+
+<div class="desc">
+
+Sakura alerta Sarada sobre a cegueira enquanto a fuga de Code gera tensão em Konoha.
+
+</div>
+
+<div class="expire">
+
+⚠ O link deste capítulo pode expirar futuramente.
+
+</div>
+
+<button class="btn"
+onclick="abrirLeitor('https://files.catbox.moe/sd89ql.pdf')">
+
+Ler Capítulo
+
+</button>
+
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="card">
+
+<img class="cover"
+src="https://i.postimg.cc/m29FNpCv/Manga-One-Piece-Capitulo-(1184)-1.jpg">
+
+<div class="info">
+
+<div class="manga-name">
+One Piece
+</div>
+
+<div class="chapter">
+Capítulo 1184
+</div>
+
+<div class="desc">
+
+A infância de Broke no Reino de Esperia é revelada antes da grande era dos piratas.
+
+</div>
+
+<div class="expire">
+
+⚠ O link deste capítulo pode expirar futuramente.
+
+</div>
+
+<button class="btn"
+onclick="abrirLeitor('https://files.catbox.moe/bt5zga.pdf')">
+
+Ler Capítulo
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LEITOR PDF -->
+
+<div id="viewer">
+
+<div class="viewer-top">
+
+<button class="close-btn"
+onclick="fecharLeitor()">
+
+Fechar Leitor
+
+</button>
+
+</div>
+
+<!-- PDF.JS -->
+
+<iframe id="pdfFrame"></iframe>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 Mango - Biblioteca de Mangás
+
+</footer>
+
+<script>
+
+/* ABRIR LEITOR */
+
+function abrirLeitor(link){
+
+document.getElementById("viewer")
+.style.display = "block";
+
+/* PDF.JS */
+
+document.getElementById("pdfFrame").src =
+"https://mozilla.github.io/pdf.js/web/viewer.html?file="
++ encodeURIComponent(link);
+
+}
+
+/* FECHAR LEITOR */
+
+function fecharLeitor(){
+
+document.getElementById("viewer")
+.style.display = "none";
+
+document.getElementById("pdfFrame")
+.src = "";
+
+}
+
+</script>
+
+</body>
+</html>
