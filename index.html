@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MANGO - Leitura Online</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0d0d0d;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+/* FUNDO */
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#ff990015,transparent 35%),
+    radial-gradient(circle at bottom,#ff730010,transparent 35%);
+    z-index:-1;
+}
+
+/* CONTAINER PRINCIPAL */
+
+.app{
+    width:100%;
+    max-width:500px;
+    margin:auto;
+    min-height:100vh;
+    padding-bottom:40px;
+}
+
+/* TOPO */
+
+.topo{
+    padding:25px 20px 10px;
+}
+
+/* TITULO */
+
+.logo-box{
+    background:linear-gradient(135deg,#ff7b00,#ffb700);
+    border-radius:22px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.slogan{
+    margin-top:18px;
+    text-align:center;
+    color:#cfcfcf;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* LINHA */
+
+.divider{
+    width:100%;
+    height:2px;
+    background:#252525;
+    margin:25px 0;
+    border-radius:10px;
+}
+
+/* TITULO SESSÃO */
+
+.section-title{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:22px;
+    text-align:center;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    padding:0 18px;
+}
+
+/* CARD */
+
+.card{
+    background:#171717;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+    transition:0.3s;
+    border:1px solid #242424;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* IMAGEM */
+
+.cover{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+/* INFO */
+
+.info{
+    padding:14px;
+}
+
+/* NOME */
+
+.manga-name{
+    font-size:15px;
+    font-weight:600;
+    line-height:1.4;
+    margin-bottom:8px;
+}
+
+/* CAP */
+
+.chapter{
+    color:#ffb300;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+/* DESC */
+
+.desc{
+    color:#b8b8b8;
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:14px;
+
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+/* BOTÃO */
+
+.btn{
+    width:100%;
+    border:none;
+    padding:12px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ff7b00,#ffb700);
+    color:white;
+    font-family:Poppins,sans-serif;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.btn:hover{
+    opacity:0.9;
+}
+
+/* LEITOR */
+
+#viewer{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    z-index:9999;
+    display:none;
+}
+
+/* TOPO LEITOR */
+
+.viewer-top{
+    height:60px;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+}
+
+.viewer-title{
+    font-size:15px;
+    font-weight:600;
+}
+
+/* FECHAR */
+
+.close-btn{
+    background:#ff2d2d;
+    border:none;
+    color:white;
+    padding:10px 14px;
+    border-radius:12px;
+    font-family:Poppins,sans-serif;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* IFRAME */
+
+iframe{
+    width:100%;
+    height:calc(100vh - 60px);
+    border:none;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    color:#777;
+    margin-top:35px;
+    font-size:13px;
+    padding-bottom:20px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:420px){
+
+    .grid{
+        gap:14px;
+        padding:0 14px;
+    }
+
+    .cover{
+        height:150px;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .section-title{
+        font-size:22px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- TOPO -->
+
+    <section class="topo">
+
+        <div class="logo-box">
+
+            <div class="logo">
+                MANGO
+            </div>
+
+        </div>
+
+        <div class="slogan">
+            Leia mangás online diretamente do celular com um visual moderno, rápido e confortável.
+        </div>
+
+        <div class="divider"></div>
+
+    </section>
+
+    <!-- TITULO -->
+
+    <section>
+
+        <h2 class="section-title">
+            Últimos Capítulos
+        </h2>
+
+    </section>
+
+    <!-- GRID -->
+
+    <section class="grid">
+
+        <!-- CARD 1 -->
+
+        <div class="card">
+
+            <img class="cover"
+            src="https://i.postimg.cc/3J4BCrJ2/f1cb60ee-3fdd-4379-b64f-407698054a58.jpg">
+
+            <div class="info">
+
+                <div class="manga-name">
+                    Bleach Colorido
+                </div>
+
+                <div class="chapter">
+                    Capítulo 686
+                </div>
+
+                <div class="desc">
+                    Dez anos após a derrota de Yhwach, os casais Ichigo/Orihime e Renji/Rukia aparecem com seus filhos, Kazui e Ichika.
+                </div>
+
+                <button class="btn"
+                onclick="abrirLeitor('https://files.catbox.moe/hnbjbs.pdf')">
+
+                    Ler Agora
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <img class="cover"
+            src="https://i.postimg.cc/pLwMGjqV/Naruto-700-Fim-Hokage1.jpg">
+
+            <div class="info">
+
+                <div class="manga-name">
+                    Naruto Colorido
+                </div>
+
+                <div class="chapter">
+                    Capítulo 700
+                </div>
+
+                <div class="desc">
+                    Naruto realiza seu sonho como Hokage enquanto Boruto começa sua jornada na nova era ninja.
+                </div>
+
+                <button class="btn"
+                onclick="abrirLeitor('https://files.catbox.moe/hfr6ww.pdf')">
+
+                    Ler Agora
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <img class="cover"
+            src="https://i.postimg.cc/sgh17TGv/Boruto-TBV-CAP-34-Pt-Br-1.jpg">
+
+            <div class="info">
+
+                <div class="manga-name">
+                    Boruto TBV
+                </div>
+
+                <div class="chapter">
+                    Capítulo 34
+                </div>
+
+                <div class="desc">
+                    Sarada enfrenta novos desafios enquanto Code continua ameaçando Konoha.
+                </div>
+
+                <button class="btn"
+                onclick="abrirLeitor('https://files.catbox.moe/sd89ql.pdf')">
+
+                    Ler Agora
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="card">
+
+            <img class="cover"
+            src="https://i.postimg.cc/m29FNpCv/Manga-One-Piece-Capitulo-(1184)-1.jpg">
+
+            <div class="info">
+
+                <div class="manga-name">
+                    One Piece
+                </div>
+
+                <div class="chapter">
+                    Capítulo 1184
+                </div>
+
+                <div class="desc">
+                    O passado do Reino de Esperia é revelado antes de uma nova grande aventura.
+                </div>
+
+                <button class="btn"
+                onclick="abrirLeitor('https://files.catbox.moe/bt5zga.pdf')">
+
+                    Ler Agora
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 MANGO - Biblioteca Online
+
+    </footer>
+
+</div>
+
+<!-- LEITOR PDF -->
+
+<div id="viewer">
+
+    <div class="viewer-top">
+
+        <div class="viewer-title">
+            Leitor Online
+        </div>
+
+        <button class="close-btn"
+        onclick="fecharLeitor()">
+
+            Fechar
+
+        </button>
+
+    </div>
+
+    <iframe id="pdfFrame"></iframe>
+
+</div>
+
+<script>
+
+/* ABRIR LEITOR */
+
+function abrirLeitor(link){
+
+    document.getElementById("viewer")
+    .style.display = "block";
+
+    document.getElementById("pdfFrame").src =
+    "https://mozilla.github.io/pdf.js/web/viewer.html?file="
+    + encodeURIComponent(link);
+
+}
+
+/* FECHAR LEITOR */
+
+function fecharLeitor(){
+
+    document.getElementById("viewer")
+    .style.display = "none";
+
+    document.getElementById("pdfFrame")
+    .src = "";
+
+}
+
+</script>
+
+</body>
+</html>
